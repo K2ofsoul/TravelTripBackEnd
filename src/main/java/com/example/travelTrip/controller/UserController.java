@@ -29,5 +29,8 @@ public class UserController {
 //    public String removeUser(@RequestBody UserEntity user){
 //        return service.removeUser(user);
 //    }
-
+    @GetMapping("/getallusers")
+    public List<User> getAllUsers(){
+        return service.getAllUsers();
+    }
 }

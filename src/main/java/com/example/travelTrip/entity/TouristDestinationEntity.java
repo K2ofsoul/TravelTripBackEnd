@@ -13,10 +13,11 @@ import lombok.NoArgsConstructor;
 public class TouristDestinationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Destination_ID;
+    private int Destination_ID;
     private String Destination_name;
-
-    private Integer Country_ID;
+    private int Country_ID;
+    private int Type_ID;
+    private String Desination_Description;
 
 
 }
