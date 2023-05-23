@@ -1,7 +1,7 @@
-package com.example.travelTrip.controller;
+package com.example.travelTrip.controller.Country;
 
 import com.example.travelTrip.entity.Country.VietnamEntity;
-import com.example.travelTrip.service.VietnamService;
+import com.example.travelTrip.service.Country.VietnamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

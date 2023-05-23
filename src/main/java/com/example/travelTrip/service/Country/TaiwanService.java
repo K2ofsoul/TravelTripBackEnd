@@ -1,37 +1,37 @@
-package com.example.travelTrip.service;
+package com.example.travelTrip.service.Country;
 
-
+import com.example.travelTrip.entity.Country.TaiwanEntity;
 import com.example.travelTrip.entity.Country.VietnamEntity;
+import com.example.travelTrip.repo.Country.TaiwanRepo;
 import com.example.travelTrip.repo.Country.VietnamRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
 @Service
-public class VietnamService {
-    private final VietnamRepo repo;
+public class TaiwanService {
+    private final TaiwanRepo repo;
 
     @Autowired
-    public VietnamService(VietnamRepo repo) {
+    public TaiwanService(TaiwanRepo repo) {
         this.repo = repo;
     }
 
-    public List<VietnamEntity> getVietnam() {
+    public List<TaiwanEntity> getTaiwan() {
         return repo.findAll();
     }
 
-    public Optional<VietnamEntity> getPlaceById(Long id) {
+    public Optional<TaiwanEntity> getPlaceById(Long id) {
         return repo.findById(id);
     }
 
-    public String saveVietnam(VietnamEntity place) {
+    public String saveTaiwan(TaiwanEntity place) {
         repo.save(place);
         return "save place successfully";
     }
 
-    public void deleteVietnam(Long id) {
+    public void deleteTaiwan(Long id) {
         repo.deleteById(id);
     }
 }
