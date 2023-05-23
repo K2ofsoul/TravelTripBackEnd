@@ -12,10 +12,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class AreaEntity {
+public class TypeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int Area_ID;
-    public String Area_Name;
-    public int City_ID;
+    public int Type_ID;
+    public String Type_Name;
 }

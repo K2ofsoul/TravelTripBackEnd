@@ -4,18 +4,16 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-public class AreaEntity {
+public class PlaceEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int Area_ID;
-    public String Area_Name;
-    public int City_ID;
+    private Long id;
+    private String name;
+    private String location;
+    private String description;
+    private String image;
+
+    // Constructors, getters, setters
 }

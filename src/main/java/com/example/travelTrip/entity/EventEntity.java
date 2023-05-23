@@ -13,7 +13,11 @@ import lombok.NoArgsConstructor;
 public class EventEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    private String name;
+    public Integer id;
+    public int Event_ID;
+    public String Event_Name;
+    public int Country_ID;
+    public int Event_Type;
+    public String Event_Description;
 
 }

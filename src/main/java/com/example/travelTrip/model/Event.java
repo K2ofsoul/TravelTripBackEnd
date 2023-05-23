@@ -1,6 +1,7 @@
 package com.example.travelTrip.model;
 
 public class Event {
+    public Integer id;
     public int Event_ID;
     public String Event_Name;
     public int Country_ID;
