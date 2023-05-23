@@ -1,16 +1,17 @@
-package com.example.travelTrip.entity;
+package com.example.travelTrip.entity.Country;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "place_tab")
-public class PlaceEntity {
+@Table(name = "Vietnam")
+public class VietnamEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,6 +21,4 @@ public class PlaceEntity {
     @Lob
     @Column(columnDefinition = "LONGBLOB")
     private byte[] image;
-
-    // Constructors, getters, setters
 }

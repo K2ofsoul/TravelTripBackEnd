@@ -1,6 +1,6 @@
-package com.example.travelTrip.model;
+package com.example.travelTrip.model.Country;
 
-public class Place {
+public class Vietnam {
     private Long id;
     private String name;
     private String location;
