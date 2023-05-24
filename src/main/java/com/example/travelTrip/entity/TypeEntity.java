@@ -15,6 +15,10 @@ import lombok.NoArgsConstructor;
 public class TypeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int Type_ID;
-    public String Type_Name;
+    private int Type_ID;
+    private String Type_Name;
+    public void setTypeID(int Type_ID){
+        this.Type_ID = Type_ID;
+    }
+
 }

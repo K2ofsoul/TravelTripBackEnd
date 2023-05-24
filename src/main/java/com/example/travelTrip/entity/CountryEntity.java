@@ -1,5 +1,6 @@
 package com.example.travelTrip.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,15 +18,14 @@ public class CountryEntity {
 //    private TouristDestinationEntity destination;
     @ManyToOne
     @JoinColumn(name = "Area_ID", referencedColumnName = "Area_ID")
-    private AreaEntity area;
+    private AreaEntity area = new AreaEntity();
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="Country_ID",insertable=false, updatable=false)
     private int Country_ID;
     @Column(name = "Country_Name")
     private String Country_Name;
-    @Column(name = "Area_ID",insertable=false, updatable=false)
-    private int Area_ID;
+//    @Column(name = "Area_ID",insertable=false, updatable=false)
+//    private int Area_ID;
     @Lob
     @Column(columnDefinition = "LONGBLOB")
     private byte[] image;
@@ -35,7 +35,11 @@ public class CountryEntity {
     public void setName(String Country_Name){
         this.Country_Name = Country_Name;
     }
+    @JsonProperty("Area_ID")
     public void setAreaID(int Area_ID){
-        this.Area_ID = Area_ID;
+        this.area = new AreaEntity();
+        this.area.setAreaID(Area_ID);
     }
+
+
 }
