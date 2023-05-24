@@ -6,4 +6,6 @@ public class TouristDestination {
     public int Country_ID;
     public int Type_ID;
     public String Destination_Description;
+    private byte[] image;
+
 }

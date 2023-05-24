@@ -1,7 +1,9 @@
-package com.example.travelTrip.controller.Country;
+package com.example.travelTrip.controller;
 
 import com.example.travelTrip.entity.Country.TaiwanEntity;
+import com.example.travelTrip.entity.CountryEntity;
 import com.example.travelTrip.service.Country.TaiwanService;
+import com.example.travelTrip.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,11 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+
 @RestController
 @CrossOrigin
-public class TaiwanController {
+public class countryController {
     @Autowired
-    private TaiwanService service;
+    private CountryService service;
 
 //    @GetMapping
 //    public ResponseEntity<List<VietnamEntity>> getVietnamPlaces() {
@@ -21,23 +24,27 @@ public class TaiwanController {
 //        return new ResponseEntity<>(places, HttpStatus.OK);
 //    }
 
-    @GetMapping("getTaiwan")
-    public ResponseEntity<TaiwanEntity> getPlaceById(@PathVariable Long id) {
+    @GetMapping("getCountry")
+    public ResponseEntity<CountryEntity> getPlaceById(@PathVariable int id) {
         return service.getPlaceById(id)
                 .map(place -> new ResponseEntity<>(place, HttpStatus.OK))
                 .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    @PostMapping("/saveTaiwan")
-    private ResponseEntity<String> saveTaiwan(@RequestParam("image") MultipartFile image, @RequestParam("name") String name, @RequestParam("description") String description) {
+    @PostMapping("/saveCountry")
+    private ResponseEntity<String> saveTaiwan(@RequestParam("image") MultipartFile image,
+                                              @RequestParam("Country_ID") int Country_ID,
+                                              @RequestParam("Country_Name") String Country_Name,
+                                              @RequestParam("Area_ID") int Area_ID) {
         try {
             byte[] imageData = image.getBytes();
-            TaiwanEntity place = new TaiwanEntity();
-            place.setName(name);
-            place.setDescription(description);
+            CountryEntity place = new CountryEntity();
+            place.setName(Country_Name);
+            place.setCountryID(Country_ID);
+            place.setAreaID(Area_ID);
             place.setImage(imageData);
 
-            service.saveTaiwan(place);
+            service.saveCountry(place);
 
 
             return new ResponseEntity<>("Place saved successfully", HttpStatus.OK);
@@ -48,9 +55,9 @@ public class TaiwanController {
     }
 
 
-    @DeleteMapping("deleteTaiwan")
-    public ResponseEntity<Void> deletePlace(@PathVariable Long id) {
-        service.deleteTaiwan(id);
+    @DeleteMapping("deleteCountry")
+    public ResponseEntity<Void> deletePlace(@PathVariable int id) {
+        service.deleteCountry(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
