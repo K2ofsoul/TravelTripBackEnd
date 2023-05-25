@@ -28,12 +28,12 @@ public class AreaController {
     private ResponseEntity<String> saveTaiwan(@RequestParam("image") MultipartFile image,
                                               @RequestParam("Area_ID") int Area_ID,
                                               @RequestParam("Area_Name") String Area_Name,
-                                              @RequestParam("City_ID") int City_ID) {
+                                              @RequestParam("Country_ID") int Country_ID) {
         try {
             byte[] imageData = image.getBytes();
             AreaEntity place = new AreaEntity();
             place.setAreaID(Area_ID);
-            place.setCityID(City_ID);
+            place.setCountryID(Country_ID);
             place.setName(Area_Name);
             place.setImage(imageData);
 

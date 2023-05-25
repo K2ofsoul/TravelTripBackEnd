@@ -10,10 +10,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "Area_tab")
 public class AreaEntity {
     @ManyToOne
-    @JoinColumn(name = "City_ID", referencedColumnName = "City_ID")
-    private CityEntity city = new CityEntity();
+    @JoinColumn(name = "Country_ID", referencedColumnName = "Country_ID")
+    private CountryEntity country = new CountryEntity();
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Area_ID;
@@ -27,10 +28,9 @@ public class AreaEntity {
     public void setName(String Area_Name){
         this.Area_Name = Area_Name;
     }
-    @JsonProperty("City_ID")
-    public void setCityID(int City_ID){
-        this.city = new CityEntity();
-        this.city.setCityID(City_ID);
+    public void setCountryID(int Country_ID){
+        this.country = new CountryEntity();
+        this.country.setCountryID(Country_ID);
     }
 
 }

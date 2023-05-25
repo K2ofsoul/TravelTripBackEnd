@@ -27,5 +27,21 @@ public class HotelEntity {
     public void setHotelID(int Hotel_ID){
         this.Hotel_ID = Hotel_ID;
     }
+    public void setName(String Hotel_Name){
+        this.Hotel_Name = Hotel_Name;
+    }
+    public void setCountryID(int Country_ID){
+        this.country = new CountryEntity();
+        this.country.setCountryID(Country_ID);
+    }
+    public void setStar(int Hotel_Star){
+        this.Hotel_Star= Hotel_Star;
+    }
+    public void setPerson(String Hotel_Person){
+        this.Hotel_Person = Hotel_Person;
+    }
+    public void setDescription(String Hotel_Description){
+        this.Hotel_Description = Hotel_Description;
+    }
 }
 

@@ -27,7 +27,8 @@ public class CityController {
                                               @RequestParam("City_ID") int City_ID,
                                               @RequestParam("City_Name") String City_Name,
                                               @RequestParam("City_Code") int City_Code,
-                                              @RequestParam("City_Description")String City_Description) {
+                                              @RequestParam("City_Description")String City_Description,
+                                              @RequestParam("Area_ID")int Area_ID) {
         try {
             byte[] imageData = image.getBytes();
             CityEntity place = new CityEntity();
@@ -35,6 +36,7 @@ public class CityController {
             place.setName(City_Name);
             place.setCode(City_Code);
             place.setDescription(City_Description);
+            place.setAreaID(Area_ID);
             place.setImage(imageData);
 
             service.saveCity(place);

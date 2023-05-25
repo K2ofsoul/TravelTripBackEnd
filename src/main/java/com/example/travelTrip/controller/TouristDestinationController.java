@@ -1,8 +1,6 @@
 package com.example.travelTrip.controller;
 
-import com.example.travelTrip.entity.PlaceEntity;
 import com.example.travelTrip.entity.TouristDestinationEntity;
-import com.example.travelTrip.service.PlaceService;
 import com.example.travelTrip.service.TouristDestinationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.List;
 
 @RestController
 @CrossOrigin

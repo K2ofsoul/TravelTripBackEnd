@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "City_tab")
 public class CityEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +17,9 @@ public class CityEntity {
     private String City_Name;
     private int City_Code;
     private String City_Description;
+    @ManyToOne
+    @JoinColumn(name = "Area_ID", referencedColumnName = "Area_ID")
+    private AreaEntity area = new AreaEntity();
     @Lob
     @Column(columnDefinition = "LONGBLOB")
     private byte[] image;
@@ -30,5 +34,9 @@ public class CityEntity {
     }
     public void setDescription(String City_Description){
         this.City_Description = City_Description;
+    }
+    public void setAreaID(int Area_ID){
+        this.area = new AreaEntity();
+        this.area.setAreaID(Area_ID);
     }
 }

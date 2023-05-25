@@ -24,7 +24,7 @@ public class countryController {
 //        return new ResponseEntity<>(places, HttpStatus.OK);
 //    }
 
-    @GetMapping("getCountry")
+    @GetMapping("/getCountry")
     public ResponseEntity<CountryEntity> getPlaceById(@PathVariable int id) {
         return service.getPlaceById(id)
                 .map(place -> new ResponseEntity<>(place, HttpStatus.OK))
@@ -34,14 +34,12 @@ public class countryController {
     @PostMapping("/saveCountry")
     private ResponseEntity<String> saveTaiwan(@RequestParam("image") MultipartFile image,
                                               @RequestParam("Country_ID") int Country_ID,
-                                              @RequestParam("Country_Name") String Country_Name,
-                                              @RequestParam("Area_ID") int Area_ID) {
+                                              @RequestParam("Country_Name") String Country_Name) {
         try {
             byte[] imageData = image.getBytes();
             CountryEntity place = new CountryEntity();
             place.setName(Country_Name);
             place.setCountryID(Country_ID);
-            place.setAreaID(Area_ID);
             place.setImage(imageData);
 
             service.saveCountry(place);
@@ -55,7 +53,7 @@ public class countryController {
     }
 
 
-    @DeleteMapping("deleteCountry")
+    @DeleteMapping("/deleteCountry")
     public ResponseEntity<Void> deletePlace(@PathVariable int id) {
         service.deleteCountry(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
